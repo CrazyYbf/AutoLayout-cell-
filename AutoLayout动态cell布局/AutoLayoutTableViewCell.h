@@ -10,5 +10,6 @@
 
 @interface AutoLayoutTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *textview;
+@property (weak, nonatomic) IBOutlet UICollectionView *mycollectionview;
 
 @end
