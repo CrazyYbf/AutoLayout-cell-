@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AutoLayoutTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UITextView *textview;
 
 @end

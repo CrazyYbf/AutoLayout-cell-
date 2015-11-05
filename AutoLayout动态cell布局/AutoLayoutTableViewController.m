@@ -7,8 +7,15 @@
 //
 
 #import "AutoLayoutTableViewController.h"
+#import "AutoLayoutTableViewCell.h"
 
-@interface AutoLayoutTableViewController ()
+@interface AutoLayoutTableViewController (){
+    
+    
+    NSArray *textarry;
+    
+    
+}
 
 @end
 
@@ -17,39 +24,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    textarry = [NSArray arrayWithObjects:@"Masonry是我们实现屏幕适配的重要手段之一",@"本质上是界面约束的语法糖。基本上，我们的做法是：大的页面关系aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" ,@"用计算完成；每个小块里面的相对位置关系，用Masonry来做",@"在有些场景下，Masonry有非常大的优势。比如说设置某个View的宽高比",@"[thumbImageView mas_makeConstraints:^(MASConstraintMaker *make) {make.top.equalTo(@0);make.left.equalTo(@0);make.width.equalTo(self);make.height.equalTo(thumbImageView.mas_width).multipliedBy(0.8);}];",@"此View的宽度与父View同宽，高度是宽度的0.8,2、设置居中，设置相对边距",nil];
+    
+    
+    self.tableView.estimatedRowHeight = 320.0f;
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return 5;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    
+    AutoLayoutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    cell.textview.text = [textarry objectAtIndex:indexPath.row];
+    
+   
+
     
     return cell;
 }
-*/
+
+
 
 /*
 // Override to support conditional editing of the table view.
